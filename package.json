@@ -48,7 +48,7 @@
     "extract-zip": "^2.0.1",
     "log4js": "^6.9.1",
     "vue": "^3.2.47",
-    "vue-i18n": "^9.2.2",
+    "vue-i18n": "^9.10.2",
     "walker": "^1.0.8"
   },
   "browserslist": [

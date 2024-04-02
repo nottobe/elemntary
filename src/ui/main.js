@@ -57,7 +57,8 @@ if (window.electronAPI) {
 
     for (var i = 0; i < locales.length; i++) {
       try {
-        messages = await import(`../messages/${locales[i]}.json`);
+        messages = (await import(`../messages/${locales[i]}.json`)).default;
+
         newLocale = locales[i];
 
         break;
