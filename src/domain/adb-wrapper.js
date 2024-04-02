@@ -64,4 +64,4 @@ class AdbWrapper {
   }
 }
 
-module.exports = AdbWrapper;
+export default AdbWrapper;

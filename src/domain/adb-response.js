@@ -187,4 +187,4 @@ class AdbResponse {
   }
 }
 
-module.exports = AdbResponse;
+export default AdbResponse;
