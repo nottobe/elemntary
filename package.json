@@ -8,12 +8,10 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development electron-forge start",
     "start-local-server": "cross-env NODE_ENV=development LOCAL_SERVER=http://localhost:8080 electron-forge start",
-    "serve": "yarn run vue-cli-service serve",
-    "serve-mock": "yarn run vue-cli-service serve --mode mock",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "format": "prettier --write '{src,tests}/**/*.{js,jsx,ts,tsx,css,md,json,vue}'",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
