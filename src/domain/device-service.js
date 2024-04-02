@@ -10,7 +10,7 @@ import Features from "./features.js";
 
 const BACKUP_FILE = "elemnt_config.zip";
 
-class DeviceService {
+export default class DeviceService {
   constructor(options) {
     this.adb = options.adbWrapper || new AdbWrapper();
   }
@@ -498,5 +498,3 @@ class DeviceService {
       });
   }
 }
-
-export default DeviceService;
