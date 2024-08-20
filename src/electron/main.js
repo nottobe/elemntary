@@ -1,5 +1,7 @@
 import path from "path";
 import log4js from "log4js";
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import unhandled from "electron-unhandled";
 
 import {
@@ -10,6 +12,9 @@ import {
   dialog,
 } from "electron";
 
+const require = createRequire(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 if (app.getGPUFeatureStatus().gpu_compositing.includes("disabled")) {
   app.disableHardwareAcceleration();
 }
@@ -18,8 +23,8 @@ import contextMenu from "electron-context-menu";
 
 import AdbWrapper from "src/domain/adb-wrapper.js";
 import DeviceService from "src/domain/device-service.js";
-import {resolveResources} from "./resources.js";
-import {translate} from "./i18n.js";
+import { resolveResources } from "./resources.js";
+import { translate } from "./i18n.js";
 
 // Stop the app launching multiple times during install on Windows
 if (require("electron-squirrel-startup")) app.quit();
@@ -57,8 +62,7 @@ const setupLogger = () => {
   log.level = "debug";
 
   log.info(
-    `Starting ${app.getName()}-${app.getVersion()} ${process.platform}-${
-      process.arch
+    `Starting ${app.getName()}-${app.getVersion()} ${process.platform}-${process.arch
     }-${process.version} (${process.env.NODE_ENV})...`
   );
 
@@ -160,21 +164,21 @@ const buildMenuTemplate = (messages, locale) => {
     // { role: 'appMenu' }
     ...(isMac
       ? [
-          {
-            label: app.name,
-            submenu: [
-              { role: "about" },
-              { type: "separator" },
-              { role: "services" },
-              { type: "separator" },
-              { role: "hide" },
-              { role: "hideOthers" },
-              { role: "unhide" },
-              { type: "separator" },
-              { role: "quit" },
-            ],
-          },
-        ]
+        {
+          label: app.name,
+          submenu: [
+            { role: "about" },
+            { type: "separator" },
+            { role: "services" },
+            { type: "separator" },
+            { role: "hide" },
+            { role: "hideOthers" },
+            { role: "unhide" },
+            { type: "separator" },
+            { role: "quit" },
+          ],
+        },
+      ]
       : []),
     // { role: 'fileMenu' }
     {
@@ -315,7 +319,7 @@ app.whenReady().then(() => {
     fs.writeFile(
       "screenshots/screenshot.png",
       Buffer.from(image, "base64"),
-      (e) => {}
+      (e) => { }
     );
   });
 

@@ -3,8 +3,9 @@ import {
   getBuildConfig,
   getBuildDefine,
   external,
+  esmodule,
   pluginHotRestart,
-} from './vite.base.config.mjs';
+} from './vite.base.config';
 
 // https://vitejs.dev/config
 export default defineConfig((env) => {
@@ -17,7 +18,7 @@ export default defineConfig((env) => {
       lib: {
         entry: forgeConfigSelf.entry,
         fileName: () => '[name].js',
-        formats: ['cjs'],
+        formats: [esmodule ? 'es' : 'cjs'],
       },
       rollupOptions: {
         external,

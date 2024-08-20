@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { pluginExposeRenderer } from './vite.base.config.mjs';
+import { pluginExposeRenderer } from './vite.base.config';
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue';
 
@@ -9,7 +9,7 @@ export default defineConfig((env) => {
   const forgeEnv = env;
   const { root, mode, forgeConfigSelf } = forgeEnv;
   const name = forgeConfigSelf.name ?? '';
-  
+
   /** @type {import('vite').UserConfig} */
   return {
     root,

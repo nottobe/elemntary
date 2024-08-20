@@ -4,7 +4,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: false,
-    ignore: ['tests/','tmp/']
+    ignore: ['tests/', 'tmp/']
   },
   rebuildConfig: {},
   makers: [
@@ -35,17 +35,17 @@ module.exports = {
           {
             // `entry` is just an alias for `build.lib.entry` in the corresponding file of `config`.
             entry: 'src/electron/main.js',
-            config: 'vite.main.config.mjs',
+            config: 'vite.main.config.js',
           },
           {
             entry: 'src/electron/preload.js',
-            config: 'vite.preload.config.mjs',
+            config: 'vite.preload.config.js',
           },
         ],
         renderer: [
           {
             name: 'main_window',
-            config: 'vite.renderer.config.mjs',
+            config: 'vite.renderer.config.js',
           },
         ],
       },
